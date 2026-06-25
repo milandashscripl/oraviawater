@@ -1,0 +1,1 @@
+const API_BASE_URL = window.API_BASE_URL || (window.location.hostname === 'localhost' ? 'http://localhost:5000/api' : 'https://your-render-backend-url.onrender.com/api'); window.API_BASE_URL = API_BASE_URL;

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oravia Water | Premium Mineral Water</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/config.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>ORAVIAWATER</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="#home">Home</a>
+                <a href="#shop">Shop</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <button class="cart-btn" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <a href="/admin" class="admin-btn" title="Admin Dashboard">
+                    <i class="fas fa-lock"></i>
+                </a>
+                <button class="menu-btn" id="menuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Experience the Purity of Premium Mineral Water</h1>
+                <p>Discover our premium mineral water and exclusive products for a refreshing lifestyle.</p>
+                <a href="#shop" class="cta-btn">Shop Now</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1608270861620-7791c0c1d53e?w=600&h=600&fit=crop" alt="Premium Water Bottle">
+            </div>
+        </section>
+
+        <section class="brand-strip">
+            <div class="container">
+                <div class="brand-pill"><i class="fas fa-star"></i> Premium Quality</div>
+                <div class="brand-pill"><i class="fas fa-shield-alt"></i> Certified Safe</div>
+                <div class="brand-pill"><i class="fas fa-truck"></i> Fast Delivery</div>
+                <div class="brand-pill"><i class="fas fa-leaf"></i> Eco Friendly</div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products" id="shop">
+            <div class="container">
+                <h2>Our Products</h2>
+                <p class="section-subtitle">Carefully crafted for your wellness</p>
+                
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1608270861620-7791c0c1d53e?w=300&h=300&fit=crop" alt="Premium Mineral Water">
+                        <h3>Premium Mineral Water</h3>
+                        <p>Pure mineral water enriched with essential minerals</p>
+                        <div class="price">₹150</div>
+                        <button class="add-to-cart" data-product="Premium Mineral Water" data-price="150">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1609903528506-86e44b63dbb0?w=300&h=300&fit=crop" alt="Alkaline Water">
+                        <h3>Alkaline Water</h3>
+                        <p>Balanced pH level for optimal hydration</p>
+                        <div class="price">₹180</div>
+                        <button class="add-to-cart" data-product="Alkaline Water" data-price="180">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561182?w=300&h=300&fit=crop" alt="Sparkling Water">
+                        <h3>Sparkling Water</h3>
+                        <p>Refreshing carbonated mineral water</p>
+                        <div class="price">₹120</div>
+                        <button class="add-to-cart" data-product="Sparkling Water" data-price="120">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1609947042686-e5eb78e80e89?w=300&h=300&fit=crop" alt="Flavored Water">
+                        <h3>Flavored Water</h3>
+                        <p>Natural flavors with mineral enrichment</p>
+                        <div class="price">₹140</div>
+                        <button class="add-to-cart" data-product="Flavored Water" data-price="140">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1572000994253-a64d4f8e91c2?w=300&h=300&fit=crop" alt="Family Pack">
+                        <h3>Family Pack (6L)</h3>
+                        <p>Large capacity bottle for families</p>
+                        <div class="price">₹450</div>
+                        <button class="add-to-cart" data-product="Family Pack" data-price="450">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1578500494198-246f612d782b?w=300&h=300&fit=crop" alt="Multi Pack">
+                        <h3>Multi Pack (12 bottles)</h3>
+                        <p>Convenient bulk pack for offices</p>
+                        <div class="price">₹1200</div>
+                        <button class="add-to-cart" data-product="Multi Pack" data-price="1200">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2>About Our Water</h2>
+                        <p>We are committed to providing the highest quality mineral water sourced from pristine natural springs.</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> 100% Natural Mineral Water</li>
+                            <li><i class="fas fa-check"></i> Advanced Filtration Process</li>
+                            <li><i class="fas fa-check"></i> Rich in Essential Minerals</li>
+                            <li><i class="fas fa-check"></i> Eco-Friendly Packaging</li>
+                            <li><i class="fas fa-check"></i> Certified Quality Standards</li>
+                            <li><i class="fas fa-check"></i> Available Pan India</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1599599810694-b5ac4dd64e90?w=500&h=500&fit=crop" alt="About Water">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits">
+            <div class="container">
+                <h2>Why Choose Us</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-droplet"></i>
+                        </div>
+                        <h3>Pure & Fresh</h3>
+                        <p>Sourced from the cleanest natural springs with minimal processing</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Eco-Friendly</h3>
+                        <p>Sustainable packaging that's recyclable and environment-friendly</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Quality Assured</h3>
+                        <p>Certified and tested for purity and mineral content</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Fast Delivery</h3>
+                        <p>Quick and reliable delivery across all major cities</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <p class="section-subtitle">For any inquiries about retail, distribution, or partnerships</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <h3><i class="fas fa-phone"></i> Phone</h3>
+                            <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                            <p><a href="tel:+919876543211">+91 98765 43211</a></p>
+                        </div>
+                        <div class="info-item">
+                            <h3><i class="fas fa-envelope"></i> Email</h3>
+                            <p><a href="mailto:info@hydrawater.com">info@hydrawater.com</a></p>
+                            <p><a href="mailto:support@hydrawater.com">support@hydrawater.com</a></p>
+                        </div>
+                        <div class="info-item">
+                            <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
+                            <p>123 Water Springs Road<br>Pure City, State 123456<br>India</p>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="form-group">
+                            <label>Name *</label>
+                            <input type="text" name="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" name="phone" placeholder="Your phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" name="email" placeholder="Your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message *</label>
+                            <textarea name="message" placeholder="Enter your message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to our newsletter for special offers and updates</p>
+                <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID" method="POST">
+                    <input type="email" name="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ORAVIAWATER</h3>
+                <p>Premium Mineral Water for a Healthier You</p>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Return Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: <a href="mailto:info@hydrawater.com">info@hydrawater.com</a></p>
+                <p>Phone: <a href="tel:+919876543210">+91 98765 43210</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ORAVIAWATER Mineral Water. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart"></i> for your wellness</p>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Shopping Cart</h2>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: </strong>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- User Login/Registration Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-modal-content">
+            <button class="modal-close" id="closeAuthModal">&times;</button>
+            
+            <!-- Login Form -->
+            <div class="auth-form" id="loginForm">
+                <h2>Login to Your Account</h2>
+                <form id="loginFormElement">
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+                <p class="form-toggle">Don't have an account? <a href="#" id="switchToRegister">Register here</a></p>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="auth-form" id="registerForm" style="display: none;">
+                <h2>Create Your Account</h2>
+                <form id="registerFormElement">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="registerName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="registerEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="registerPhone" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="registerPassword" placeholder="Create a password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Register</button>
+                </form>
+                <p class="form-toggle">Already have an account? <a href="#" id="switchToLogin">Login here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="auth-overlay" id="authOverlay"></div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

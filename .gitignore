@@ -1,0 +1,43 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Firebase config (keep this private!)
+firebase-config.js
+
+# Node modules (if using npm)
+node_modules/
+package-lock.json
+yarn.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build outputs
+dist/
+build/
+
+# Dependencies
+vendor/
+
+# Logs
+*.log
+npm-debug.log*
+
+# MongoDB
+.mongo/
+
+# Vercel
+.vercel/
+
+# Environment (do not commit!)
+.env.production.local
