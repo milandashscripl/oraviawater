@@ -364,25 +364,124 @@ function setupAnalytics() {
 // AUTHENTICATION MODAL
 // ==========================================
 
-function showAuthModal() {
+function ensureAuthModalMarkup() {
+    if (document.getElementById('authModal')) return;
+
+    const modal = document.createElement('div');
+    modal.className = 'auth-modal';
+    modal.id = 'authModal';
+    modal.innerHTML = `
+        <div class="auth-modal-content">
+            <button class="modal-close" id="closeAuthModal" type="button" aria-label="Close login form">&times;</button>
+            <div class="auth-form" id="loginForm" style="display:block;">
+                <h2>Welcome back</h2>
+                <form id="loginFormElement">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+                <p class="form-toggle">Don’t have an account? <a href="#" id="switchToRegister">Register here</a></p>
+            </div>
+            <div class="auth-form" id="registerForm" style="display:none;">
+                <h2>Create your account</h2>
+                <form id="registerFormElement">
+                    <div class="form-group">
+                        <label for="registerName">Full Name</label>
+                        <input type="text" id="registerName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email Address</label>
+                        <input type="email" id="registerEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPhone">Phone Number</label>
+                        <input type="tel" id="registerPhone" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" placeholder="Create a password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Register</button>
+                </form>
+                <p class="form-toggle">Already have an account? <a href="#" id="switchToLogin">Login here</a></p>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    const overlay = document.createElement('div');
+    overlay.className = 'auth-overlay';
+    overlay.id = 'authOverlay';
+    document.body.appendChild(overlay);
+}
+
+function ensureAuthButton() {
+    const headerActions = document.querySelector('.header-actions');
+    if (!headerActions) return;
+
+    let authBtn = document.getElementById('authBtn');
+    if (!authBtn) {
+        authBtn = document.createElement('button');
+        authBtn.id = 'authBtn';
+        authBtn.className = 'auth-btn';
+        authBtn.type = 'button';
+        authBtn.innerHTML = '<i class="fas fa-user"></i><span>Login / Register</span>';
+        headerActions.prepend(authBtn);
+    }
+
+    authBtn.onclick = (e) => {
+        e.preventDefault();
+        showAuthModal('login');
+    };
+
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+    if (currentUser) {
+        authBtn.innerHTML = `<i class="fas fa-user-check"></i><span>Hi, ${currentUser.name || currentUser.email}</span>`;
+    } else {
+        authBtn.innerHTML = '<i class="fas fa-user"></i><span>Login / Register</span>';
+    }
+}
+
+function showAuthModal(mode = 'login') {
+    ensureAuthModalMarkup();
     const authModal = document.getElementById('authModal');
     const authOverlay = document.getElementById('authOverlay');
     const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+
+    if (!authModal || !authOverlay || !loginForm || !registerForm) return;
 
     authModal.classList.add('active');
     authOverlay.classList.add('active');
-    loginForm.style.display = 'block';
+
+    if (mode === 'register') {
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'block';
+    } else {
+        loginForm.style.display = 'block';
+        registerForm.style.display = 'none';
+    }
 }
 
 function closeAuthModal() {
     const authModal = document.getElementById('authModal');
     const authOverlay = document.getElementById('authOverlay');
 
-    authModal.classList.remove('active');
-    authOverlay.classList.remove('active');
+    if (authModal) authModal.classList.remove('active');
+    if (authOverlay) authOverlay.classList.remove('active');
 }
 
 function setupAuthModal() {
+    ensureAuthModalMarkup();
+    ensureAuthButton();
+
     const closeBtn = document.getElementById('closeAuthModal');
     const authOverlay = document.getElementById('authOverlay');
     const switchToRegister = document.getElementById('switchToRegister');
@@ -390,11 +489,11 @@ function setupAuthModal() {
     const loginForm = document.getElementById('loginFormElement');
     const registerForm = document.getElementById('registerFormElement');
 
-    // Close modal
+    if (!closeBtn || !authOverlay || !switchToRegister || !switchToLogin || !loginForm || !registerForm) return;
+
     closeBtn.addEventListener('click', closeAuthModal);
     authOverlay.addEventListener('click', closeAuthModal);
 
-    // Switch forms
     switchToRegister.addEventListener('click', (e) => {
         e.preventDefault();
         document.getElementById('loginForm').style.display = 'none';
@@ -409,11 +508,12 @@ function setupAuthModal() {
 
     loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const email = document.getElementById('loginEmail').value;
+        const email = document.getElementById('loginEmail').value.trim();
         const password = document.getElementById('loginPassword').value;
+        const apiBase = window.API_BASE_URL || '/api';
 
         try {
-            const response = await fetch('/api/auth/login', {
+            const response = await fetch(`${apiBase}/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
@@ -425,7 +525,10 @@ function setupAuthModal() {
 
             localStorage.setItem('currentUser', JSON.stringify(data.user));
             localStorage.setItem('authToken', data.token);
-            cart.showNotification('Login successful! Please proceed to checkout.');
+            ensureAuthButton();
+            if (window.cart && window.cart.showNotification) {
+                window.cart.showNotification('Login successful! Please proceed to checkout.');
+            }
             closeAuthModal();
             loginForm.reset();
         } catch (error) {
@@ -435,13 +538,14 @@ function setupAuthModal() {
 
     registerForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const name = document.getElementById('registerName').value;
-        const email = document.getElementById('registerEmail').value;
-        const phone = document.getElementById('registerPhone').value;
+        const name = document.getElementById('registerName').value.trim();
+        const email = document.getElementById('registerEmail').value.trim();
+        const phone = document.getElementById('registerPhone').value.trim();
         const password = document.getElementById('registerPassword').value;
+        const apiBase = window.API_BASE_URL || '/api';
 
         try {
-            const response = await fetch('/api/auth/register', {
+            const response = await fetch(`${apiBase}/auth/register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, phone, password })
@@ -453,7 +557,10 @@ function setupAuthModal() {
 
             localStorage.setItem('currentUser', JSON.stringify(data.user));
             localStorage.setItem('authToken', data.token);
-            cart.showNotification('Registration successful! Welcome to ORAVIAWATER.');
+            ensureAuthButton();
+            if (window.cart && window.cart.showNotification) {
+                window.cart.showNotification('Registration successful! Welcome to ORAVIAWATER.');
+            }
             closeAuthModal();
             registerForm.reset();
         } catch (error) {

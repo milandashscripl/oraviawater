@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oravia Water | About</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>ORAVIAWATER</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <button class="cart-btn" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <a href="/admin" class="admin-btn" title="Admin Dashboard">
+                    <i class="fas fa-lock"></i>
+                </a>
+                <button class="menu-btn" id="menuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+        <section class="page-hero small-hero">
+            <div class="container">
+                <h1>About Oravia Water</h1>
+                <p>Pure Hydration. Premium Design. We believe packaged drinking water should offer more than refreshment—it should deliver a premium experience.</p>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2>Why customers trust us</h2>
+                        <p>Oravia is crafted for those who value both quality and style. Our diamond-cut bottle, crisp water, and thoughtfully designed experience reflect a new standard for daily hydration.</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> Premium presentation with a modern, elegant design</li>
+                            <li><i class="fas fa-check"></i> Advanced purification and strict hygiene standards</li>
+                            <li><i class="fas fa-check"></i> Fresh, balanced taste that fits a conscious lifestyle</li>
+                            <li><i class="fas fa-check"></i> Secure packaging and reliable delivery</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1599599810694-b5ac4dd64e90?w=500&h=500&fit=crop" alt="About Water">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits">
+            <div class="container">
+                <h2>Our Philosophy</h2>
+                <p><strong>A New Standard for Daily Hydration</strong></p>
+                <p>At Oravia, we don't believe in cutting corners. From our uniquely designed diamond-cut bottle to the crisp water inside, every detail is focused on delivering absolute freshness.</p>
+                <p>We wanted to create a brand that stands out on your table and fits perfectly into a modern, conscious lifestyle. Oravia brings you perfectly balanced water that looks good, tastes refreshing, and keeps you active throughout the day.</p>
+            </div>
+        </section>
+
+        <section class="benefits">
+            <div class="container">
+                <h2>Quality &amp; Hygiene</h2>
+                <p><strong>Precision Processing. Uncompromised Standards.</strong> At Oravia, we follow strict quality and hygienic protocols to ensure that every bottle delivered to you is pristine, safe, and refreshing.</p>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-filter"></i></div>
+                        <h3>Multi-Stage Purification</h3>
+                        <p>The water passes through advanced filtration, including Reverse Osmosis and UV sterilization to eliminate microscopic impurities.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-microscope"></i></div>
+                        <h3>Mineral Enhancement</h3>
+                        <p>Post-purification, we infuse a precise blend of essential minerals for a crisp taste and everyday hydration quality.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Strict Quality Oversight</h3>
+                        <p>Every batch is tested rigorously and packaged securely under high sanitary conditions before it leaves the facility.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits">
+            <div class="container">
+                <h2>The Oravia Highlights</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-droplet"></i></div>
+                        <h3>Pure &amp; Fresh</h3>
+                        <p>Crafted to maintain a clean, crisp taste from source to bottle.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
+                        <h3>Eco-Friendly</h3>
+                        <p>Thoughtful packaging choices help reduce environmental impact.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Certified Quality</h3>
+                        <p>Every batch is tested for safety, hygiene, and mineral consistency.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2024 ORAVIAWATER. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Shopping Cart</h2>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: </strong>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

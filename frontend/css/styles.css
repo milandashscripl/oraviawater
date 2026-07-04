@@ -9,13 +9,13 @@
 }
 
 :root {
-    --primary-color: #082f49;
-    --secondary-color: #0f766e;
-    --accent-color: #eab308;
-    --text-dark: #0f172a;
-    --text-light: #475569;
-    --bg-light: #f8fafc;
-    --border-color: #e2e8f0;
+    --primary-color: #111111;
+    --secondary-color: #4dd0a2;
+    --accent-color: #f5a623;
+    --text-dark: #111111;
+    --text-light: #8d8d8d;
+    --bg-light: #f2f2f2;
+    --border-color: #d7d7d7;
     --white: #ffffff;
     --shadow: 0 24px 70px rgba(2, 8, 23, 0.12);
     --transition: all 0.3s ease;
@@ -100,8 +100,28 @@ body {
 
 .header-actions {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     align-items: center;
+}
+
+.auth-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--secondary-color), #2a9672);
+    color: var(--white);
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(77, 208, 162, 0.22);
+    transition: var(--transition);
+}
+
+.auth-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 24px rgba(77, 208, 162, 0.28);
 }
 
 .cart-btn {
@@ -339,7 +359,7 @@ body {
 
 .product-card h3 {
     padding: 1.5rem 1.5rem 0.5rem;
-    color: var(--text-dark);
+    color: var(--accent-color);
     font-size: 1.3rem;
 }
 
@@ -553,6 +573,8 @@ body {
     border-radius: 5px;
     font-family: inherit;
     font-size: 1rem;
+    background-color: rgba(255,255,255,0.04);
+    color: var(--text-dark);
     transition: var(--transition);
 }
 
@@ -638,7 +660,7 @@ body {
    ========================================== */
 
 footer {
-    background: linear-gradient(180deg, #020617 0%, #0f172a 100%);
+    background: linear-gradient(135deg, #111111 0%, #1f1f1f 100%);
     color: var(--white);
     padding: 4rem 0 0;
 }
@@ -875,6 +897,8 @@ footer {
 .auth-modal-content {
     position: relative;
     padding: 2rem;
+    background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(239, 252, 246, 0.98));
+    border-radius: 16px;
 }
 
 .modal-close {
@@ -942,7 +966,8 @@ footer {
 }
 
 .auth-form .btn-primary:hover {
-    background-color: var(--secondary-color);
+    background: linear-gradient(135deg, var(--secondary-color), #2a9672);
+    transform: translateY(-2px);
 }
 
 .form-toggle {
