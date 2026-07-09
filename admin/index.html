@@ -14,62 +14,208 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
+            min-height: 100vh;
+            overflow: hidden;
+            color: #f5f9ff;
+            background: #02060d;
+        }
+
+        .page-shell {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 1.5rem;
+        }
+
+        .hero-video,
+        #bgCanvas,
+        .overlay {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-video {
+            object-fit: cover;
+            filter: brightness(0.38) saturate(0.8);
+            transform: scale(1.02);
+        }
+
+        #bgCanvas {
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.75;
+        }
+
+        .overlay {
+            z-index: 1;
+            background:
+                radial-gradient(circle at top left, rgba(77, 208, 162, 0.18), transparent 30%),
+                linear-gradient(135deg, rgba(1, 8, 17, 0.9), rgba(2, 24, 36, 0.74));
         }
 
         .login-container {
+            position: relative;
+            z-index: 2;
+            width: min(100%, 460px);
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
         .login-box {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
             width: 100%;
-            max-width: 400px;
+            background: rgba(5, 15, 25, 0.86);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 2.2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+            animation: floatIn 0.8s ease both;
+            overflow: hidden;
+        }
+
+        .login-box::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(120deg, rgba(77, 208, 162, 0.7), rgba(23, 120, 214, 0.2), rgba(77, 208, 162, 0.7));
+            z-index: -1;
+            border-radius: inherit;
+            opacity: 0.4;
+            animation: spinGlow 10s linear infinite;
+        }
+
+        .brand-badge {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #4dd0a2, #2f88ff);
+            color: #fff;
+            font-size: 1.25rem;
+            box-shadow: 0 10px 25px rgba(77, 208, 162, 0.25);
+            margin-bottom: 1rem;
         }
 
         .login-box h1 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            color: #667eea;
+            text-align: left;
+            margin-bottom: 0.65rem;
+            color: #f8fbff;
+            font-size: 1.8rem;
+            letter-spacing: 0.03em;
+        }
+
+        .login-subtitle {
+            color: #a6b8c8;
+            font-size: 0.96rem;
+            line-height: 1.5;
+            margin-bottom: 1.3rem;
+        }
+
+        .login-box .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .login-box .form-group label {
+            display: block;
+            margin-bottom: 0.55rem;
+            color: #dbe7f1;
+            font-weight: 600;
+            font-size: 0.95rem;
         }
 
         .login-box input {
             width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 0.9rem 1rem;
+            margin-bottom: 0;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 12px;
             font-size: 1rem;
+            background: rgba(7, 16, 28, 0.8);
+            color: #fff;
+            outline: none;
+            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        .login-box input:focus {
+            border-color: #4dd0a2;
+            box-shadow: 0 0 0 4px rgba(77, 208, 162, 0.16);
+            transform: translateY(-1px);
         }
 
         .login-box button {
             width: 100%;
-            padding: 0.8rem;
-            background-color: #667eea;
-            color: white;
+            padding: 0.95rem;
+            background: linear-gradient(135deg, #4dd0a2, #2f88ff);
+            color: #00131a;
             border: none;
-            border-radius: 5px;
+            border-radius: 999px;
             font-size: 1rem;
             cursor: pointer;
-            transition: 0.3s;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            margin-top: 0.3rem;
+            box-shadow: 0 12px 28px rgba(47, 136, 255, 0.24);
         }
 
         .login-box button:hover {
-            background-color: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 16px 36px rgba(47, 136, 255, 0.3);
         }
 
         .error-message {
-            color: #e74c3c;
-            margin-bottom: 1rem;
+            color: #ff7f7f;
+            margin-bottom: 0.8rem;
+            min-height: 1.1rem;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .login-hint {
             text-align: center;
+            margin-top: 1rem;
+            color: #86a3b5;
+            font-size: 0.9rem;
+        }
+
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px) scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes spinGlow {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page-shell {
+                padding: 1rem;
+            }
+
+            .login-box {
+                padding: 1.6rem;
+            }
         }
 
         /* Dashboard Layout */
@@ -406,24 +552,30 @@
     </style>
 </head>
 <body>
-    <!-- Login Container -->
-    <div class="login-container" id="loginContainer">
-        <div class="login-box">
-            <h1>ORAVIAWATER Admin</h1>
-            <div class="error-message" id="loginError"></div>
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" id="loginEmail" placeholder="admin@oraviawater.com">
+    <div class="page-shell">
+        <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80">
+            <source src="https://videos.pexels.com/video-files/854200/854200-hd_1920_1080_25fps.mp4" type="video/mp4">
+        </video>
+        <canvas id="bgCanvas"></canvas>
+        <div class="overlay"></div>
+
+        <div class="login-container" id="loginContainer">
+            <div class="login-box">
+                <div class="brand-badge"><i class="fas fa-shield-alt"></i></div>
+                <h1>ORAVIAWATER Admin</h1>
+                <p class="login-subtitle">A refined gateway for protected admin actions and operations.</p>
+                <div class="error-message" id="loginError"></div>
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="admin@oraviawater.com" onkeydown="if (event.key === 'Enter') adminLogin()">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter password" onkeydown="if (event.key === 'Enter') adminLogin()">
+                </div>
+                <button onclick="adminLogin()">Secure Login</button>
+                <p class="login-hint">Protected workspace • Only authorized administrators can continue</p>
             </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" id="loginPassword" placeholder="Enter password">
-            </div>
-            <button onclick="adminLogin()">Login</button>
-            <p style="text-align: center; margin-top: 1rem; color: #666; font-size: 0.9rem;">
-                Demo: Use any email/password (in dev mode)<br>
-                Password: admin123
-            </p>
         </div>
     </div>
 
