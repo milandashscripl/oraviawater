@@ -29,8 +29,52 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--text-dark);
     line-height: 1.6;
-    background: linear-gradient(135deg, #f8f8f8 0%, #ececec 100%);
+    background: #02060d;
     overflow-x: hidden;
+}
+
+.page-shell {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.hero-video,
+#bgCanvas,
+.overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-video {
+    object-fit: cover;
+    filter: brightness(0.35) saturate(0.8);
+    transform: scale(1.02);
+}
+
+#bgCanvas {
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.overlay {
+    z-index: 1;
+    background:
+        radial-gradient(circle at top left, rgba(77, 208, 162, 0.16), transparent 30%),
+        linear-gradient(135deg, rgba(2, 8, 16, 0.9), rgba(2, 35, 46, 0.84));
+}
+
+.header,
+.main,
+.home-main,
+.footer,
+.cart-sidebar,
+.cart-overlay {
+    position: relative;
+    z-index: 2;
 }
 
 .container {
@@ -44,13 +88,14 @@ body {
    ========================================== */
 
 .header {
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    background: rgba(5, 15, 25, 0.72);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
     position: sticky;
     top: 0;
     z-index: 100;
     padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header-container {
@@ -63,7 +108,7 @@ body {
 }
 
 .logo h1 {
-    color: var(--primary-color);
+    color: #f8fbff;
     font-size: 1.8rem;
     letter-spacing: 2px;
     font-weight: bold;
@@ -76,7 +121,7 @@ body {
 }
 
 .nav-menu a {
-    color: var(--text-dark);
+    color: #e8f2f9;
     text-decoration: none;
     font-weight: 500;
     transition: var(--transition);
@@ -128,7 +173,7 @@ body {
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: var(--text-dark);
+    color: #e8f2f9;
     cursor: pointer;
     position: relative;
     transition: var(--transition);
@@ -178,7 +223,7 @@ body {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--text-dark);
+    color: #e8f2f9;
 }
 
 .mobile-menu {
@@ -238,7 +283,6 @@ body {
     gap: 3rem;
     align-items: center;
     padding: 5rem 2rem;
-    background: linear-gradient(135deg, #111111 0%, #2b2b2b 45%, #4a4a4a 100%);
     color: var(--white);
     min-height: 600px;
     position: relative;
@@ -249,7 +293,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at top right, rgba(77, 208, 162, 0.24), transparent 30%);
+    background: linear-gradient(120deg, rgba(77, 208, 162, 0.16), transparent 55%);
     pointer-events: none;
 }
 
@@ -358,23 +402,25 @@ body {
 .hero-image img {
     width: 100%;
     max-width: 420px;
-    border-radius: 18px;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+    border-radius: 24px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
     transform: translateY(0);
     animation: floatUp 4s ease-in-out infinite;
+    border: 1px solid rgba(255,255,255,0.16);
 }
 
 .hero-floating-card {
     position: absolute;
     bottom: 1rem;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.9);
     color: var(--text-dark);
     padding: 1rem 1.2rem;
-    border-radius: 14px;
+    border-radius: 16px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
     max-width: 220px;
     animation: floatUp 3.4s ease-in-out infinite;
+    border: 1px solid rgba(77, 208, 162, 0.2);
 }
 
 .hero-floating-card h3 {
@@ -394,7 +440,8 @@ body {
 
 .page-section {
     padding: 4rem 0;
-    background-color: var(--bg-light);
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
 }
 
 .stats-grid {
@@ -484,7 +531,7 @@ body {
 
 .highlights {
     padding: 4rem 0 1rem;
-    background-color: var(--bg-light);
+    background: rgba(255,255,255,0.9);
 }
 
 .highlight-grid {
@@ -522,7 +569,7 @@ body {
 
 .products {
     padding: 5rem 0;
-    background-color: var(--bg-light);
+    background: rgba(255,255,255,0.9);
 }
 
 .products h2 {
